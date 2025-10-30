@@ -1,6 +1,8 @@
 package com.sky.web.controller.system;
 
 import java.util.List;
+
+import com.sky.common.annotation.Anonymous;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -29,6 +31,7 @@ import com.sky.system.service.ISysDeptService;
  */
 @RestController
 @RequestMapping("/system/dept")
+@Anonymous
 public class SysDeptController extends BaseController
 {
     @Autowired

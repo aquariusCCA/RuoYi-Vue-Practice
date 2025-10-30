@@ -2,6 +2,8 @@ package com.sky.web.controller.system;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.sky.common.annotation.Anonymous;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -39,6 +41,7 @@ public class SysConfigController extends BaseController
      */
     @PreAuthorize("@ss.hasPermi('system:config:list')")
     @GetMapping("/list")
+    @Anonymous
     public TableDataInfo list(SysConfig config)
     {
         startPage();
