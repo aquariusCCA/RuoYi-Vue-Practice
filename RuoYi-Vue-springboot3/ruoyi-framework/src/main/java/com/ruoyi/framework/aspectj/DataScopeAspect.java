@@ -21,6 +21,8 @@ import com.ruoyi.framework.security.context.PermissionContextHolder;
  * 数据过滤处理
  *
  * @author ruoyi
+ *
+ * NOTE: /筆記/ruoyi/若依数据权限图文详细理解及改造.md
  */
 @Aspect
 @Component

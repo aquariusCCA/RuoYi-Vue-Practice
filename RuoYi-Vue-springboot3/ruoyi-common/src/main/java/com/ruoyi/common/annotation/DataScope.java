@@ -11,9 +11,7 @@ import java.lang.annotation.Target;
  * 
  * @author ruoyi
  *
- * NOTE: [深入分析若依数据权限@datascope （注解+AOP+动态sql拼接） ](https://www.cnblogs.com/kisshappyboy/p/17980084)
- * NOTE: [若依开发平台数据权限设计与实现深度剖析](https://zhuanlan.zhihu.com/p/711964058)
- * NOTE: [若依框架中@DataScope数据权限注解的使用与自定义sql语句](https://blog.csdn.net/chinatopno1/article/details/120109098)
+ * NOTE: /筆記/ruoyi/若依数据权限图文详细理解及改造.md
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
