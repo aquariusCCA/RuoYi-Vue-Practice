@@ -2,6 +2,8 @@ package com.ruoyi.common.core.domain.entity;
 
 import java.util.Date;
 import java.util.List;
+
+import com.ruoyi.common.utils.poi.SexHandlerAdapter;
 import jakarta.validation.constraints.*;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -46,7 +48,9 @@ public class SysUser extends BaseEntity
     private String phonenumber;
 
     /** 用户性别 */
-    @Excel(name = "用户性别", readConverterExp = "0=男,1=女,2=未知")
+    // @Excel(name = "用户性别", readConverterExp = "0=男,1=女,2=未知")
+    // 用於測試 ExcelHandlerAdapter
+    @Excel(name = "用户性别", handler = SexHandlerAdapter.class, args = {"woman", "man"})
     private String sex;
 
     /** 用户头像 */

@@ -1576,6 +1576,7 @@ public class ExcelUtil<T>
     public void addField(List<Object[]> fields, Field field)
     {
         // 单注解
+        // isAnnotationPresent：判断是否包含某个注解
         if (field.isAnnotationPresent(Excel.class))
         {
             Excel attr = field.getAnnotation(Excel.class);
@@ -1593,6 +1594,7 @@ public class ExcelUtil<T>
         }
 
         // 多注解
+        // isAnnotationPresent：判断是否包含某个注解
         if (field.isAnnotationPresent(Excels.class))
         {
             Excels attrs = field.getAnnotation(Excels.class);
