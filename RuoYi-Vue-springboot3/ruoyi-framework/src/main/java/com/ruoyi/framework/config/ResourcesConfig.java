@@ -45,7 +45,9 @@ public class ResourcesConfig implements WebMvcConfigurer
     @Override
     public void addInterceptors(InterceptorRegistry registry)
     {
-        registry.addInterceptor(repeatSubmitInterceptor).addPathPatterns("/**");
+//        registry.addInterceptor(repeatSubmitInterceptor).addPathPatterns("/**");
+        // 測試重複提交
+        registry.addInterceptor(repeatSubmitInterceptor).addPathPatterns("/system/user/list");
     }
 
     /**
