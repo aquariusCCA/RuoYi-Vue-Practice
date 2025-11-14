@@ -3,6 +3,8 @@ package com.ruoyi.common.core.domain.entity;
 import java.util.Date;
 import java.util.List;
 
+import com.ruoyi.common.annotation.Sensitive;
+import com.ruoyi.common.enums.DesensitizedType;
 import com.ruoyi.common.utils.poi.SexHandlerAdapter;
 import jakarta.validation.constraints.*;
 import org.apache.commons.lang3.builder.ToStringBuilder;

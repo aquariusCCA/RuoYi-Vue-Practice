@@ -17,6 +17,7 @@ import com.ruoyi.common.enums.DesensitizedType;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 @JacksonAnnotationsInside
+// NOTE: /筆記/jackson/Jackson 自定义序列化器的使用.md
 @JsonSerialize(using = SensitiveJsonSerializer.class)
 public @interface Sensitive
 {

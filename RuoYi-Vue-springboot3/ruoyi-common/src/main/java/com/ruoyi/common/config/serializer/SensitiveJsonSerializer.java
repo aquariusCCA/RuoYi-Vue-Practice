@@ -17,6 +17,8 @@ import com.ruoyi.common.utils.SecurityUtils;
  * 数据脱敏序列化过滤
  *
  * @author ruoyi
+ *
+ * NOTE: /筆記/jackson/Jackson 自定义序列化器的使用.md
  */
 public class SensitiveJsonSerializer extends JsonSerializer<String> implements ContextualSerializer
 {
@@ -39,6 +41,8 @@ public class SensitiveJsonSerializer extends JsonSerializer<String> implements C
     public JsonSerializer<?> createContextual(SerializerProvider prov, BeanProperty property)
             throws JsonMappingException
     {
+        System.out.println("prov: " + prov);
+        System.out.println("property: " + property);
         Sensitive annotation = property.getAnnotation(Sensitive.class);
         if (Objects.nonNull(annotation) && Objects.equals(String.class, property.getType().getRawClass()))
         {
