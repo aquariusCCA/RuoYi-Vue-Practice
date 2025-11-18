@@ -16,6 +16,9 @@ import com.ruoyi.common.utils.html.EscapeUtil;
  * XSS过滤处理
  * 
  * @author ruoyi
+ *
+ * NOTE: /筆記/Web Security/XSS 攻擊.md
+ * NOTE: /筆記/Web Security/防 Xss 代码攻击.md
  */
 public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper
 {
