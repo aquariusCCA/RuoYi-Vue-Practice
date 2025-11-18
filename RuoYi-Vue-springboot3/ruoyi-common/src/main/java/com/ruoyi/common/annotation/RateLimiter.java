@@ -12,6 +12,8 @@ import com.ruoyi.common.enums.LimitType;
  * 限流注解
  * 
  * @author ruoyi
+ *
+ * NOTE: /筆記/ruoyi/限流.md
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

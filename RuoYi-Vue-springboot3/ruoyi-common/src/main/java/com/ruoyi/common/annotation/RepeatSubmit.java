@@ -12,6 +12,7 @@ import java.lang.annotation.Target;
  * 
  * @author ruoyi
  *
+ * NOTE: /筆記/ruoyi/防止重複提交.md
  */
 @Inherited
 @Target(ElementType.METHOD)

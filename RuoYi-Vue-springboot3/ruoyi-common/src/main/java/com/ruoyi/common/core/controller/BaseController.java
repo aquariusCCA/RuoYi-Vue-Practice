@@ -25,6 +25,12 @@ import com.ruoyi.common.utils.sql.SqlUtil;
  * web层通用数据处理
  * 
  * @author ruoyi
+ *
+ * 为什么若依的controller类要继承BaseController类?
+ *
+ * 我们在写项目的时候，会把一些很多相同的代码或使用相同的功能抽取出来，例如一些工具类。
+ * 也会为了提现代码的高可用性，我们常用的是的把dao层进行抽取，在若依里面，抽了一些controller层常用的方法，然后进行继承。
+ * 这样，在后面使用的时候，可以直接调用他，这样可以简化开发。他是controller层的一个通用数据处理。
  */
 public class BaseController
 {
@@ -32,6 +38,8 @@ public class BaseController
 
     /**
      * 将前台传递过来的日期格式的字符串，自动转化为Date类型
+     *
+     * NOTE: /筆記/spring/@InitBinder 使用教學.md
      */
     @InitBinder
     public void initBinder(WebDataBinder binder)
