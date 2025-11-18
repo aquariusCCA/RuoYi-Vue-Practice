@@ -181,6 +181,8 @@ public class LogAspect
         }
         else
         {
+            // JSON.toJSONString(paramsMap, excludePropertyPreFilter(excludeParamNames))
+            // 意思是把 paramsMap 轉換成 JSON 時，要把 excludeParamNames 這些欄位做排除
             operLog.setOperParam(StringUtils.substring(JSON.toJSONString(paramsMap, excludePropertyPreFilter(excludeParamNames)), 0, 2000));
         }
     }
