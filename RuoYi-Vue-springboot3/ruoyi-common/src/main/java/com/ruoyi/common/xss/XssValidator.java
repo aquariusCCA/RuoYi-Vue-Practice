@@ -10,6 +10,8 @@ import java.util.regex.Pattern;
  * 自定义xss校验注解实现
  * 
  * @author ruoyi
+ *
+ * NOTE: /筆記/Web Security/XSS 攻擊.md
  */
 public class XssValidator implements ConstraintValidator<Xss, String>
 {
