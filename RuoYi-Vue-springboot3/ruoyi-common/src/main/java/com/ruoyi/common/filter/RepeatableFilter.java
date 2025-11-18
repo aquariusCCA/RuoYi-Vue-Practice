@@ -15,6 +15,9 @@ import com.ruoyi.common.utils.StringUtils;
  * Repeatable 过滤器
  * 
  * @author ruoyi
+ *
+ * NOTE: /筆記/ruoyi/防止重複提交.md
+ * NOTE: /筆記/springmvc/使用HttpServletRequestWrapper 解决流只能读取一次的问题.md
  */
 public class RepeatableFilter implements Filter
 {

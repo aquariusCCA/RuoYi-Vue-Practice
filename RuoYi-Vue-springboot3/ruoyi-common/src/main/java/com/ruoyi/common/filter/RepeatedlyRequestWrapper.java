@@ -16,6 +16,9 @@ import com.ruoyi.common.constant.Constants;
  * 构建可重复读取inputStream的request
  * 
  * @author ruoyi
+ *
+ * NOTE: /筆記/ruoyi/防止重複提交.md
+ * NOTE: /筆記/springmvc/使用HttpServletRequestWrapper 解决流只能读取一次的问题.md
  */
 public class RepeatedlyRequestWrapper extends HttpServletRequestWrapper
 {
