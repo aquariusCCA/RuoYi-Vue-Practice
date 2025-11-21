@@ -13,6 +13,9 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * redis配置
  * 
  * @author ruoyi
+ *
+ * Note: /筆記/redis/RedisSerializer.md
+ * Note: /筆記/redis/FastJson2JsonRedisSerializer.md
  */
 @SuppressWarnings("deprecation")
 @Configuration

@@ -13,6 +13,9 @@ import com.ruoyi.common.constant.Constants;
  * Redis使用FastJson序列化
  * 
  * @author ruoyi
+ *
+ * Note: /筆記/redis/RedisSerializer.md
+ * Note: /筆記/redis/FastJson2JsonRedisSerializer.md
  */
 public class FastJson2JsonRedisSerializer<T> implements RedisSerializer<T>
 {

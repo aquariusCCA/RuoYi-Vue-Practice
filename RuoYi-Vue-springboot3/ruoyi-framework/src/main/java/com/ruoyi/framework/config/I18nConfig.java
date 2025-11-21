@@ -13,6 +13,8 @@ import com.ruoyi.common.constant.Constants;
  * 资源文件配置加载
  * 
  * @author ruoyi
+ *
+ * NOTE: [国际化(i18)不知道怎么做?来看看利用Spring Boot如何优雅实现](https://juejin.cn/post/7134515481775439903#heading-2 "国际化(i18)不知道怎么做?来看看利用Spring Boot如何优雅实现")
  */
 @Configuration
 public class I18nConfig implements WebMvcConfigurer
