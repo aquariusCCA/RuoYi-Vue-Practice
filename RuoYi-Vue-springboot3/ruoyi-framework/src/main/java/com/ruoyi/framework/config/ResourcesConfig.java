@@ -52,10 +52,15 @@ public class ResourcesConfig implements WebMvcConfigurer
 
     /**
      * 跨域配置
+     *
+     * NOTE: [Spring MVC处理 CORS 跨域](https://www.cnblogs.com/xfeiyun/p/15790563.html "Spring MVC处理 CORS 跨域")
      */
     @Bean
     public CorsFilter corsFilter()
     {
+        // Filter 是解决跨域的传统方式，Spring 出现前，我们经常会写一个解决跨域的 Filter，当请求到来时向响应头中添加固定的字段。
+        // Spring MVC 提供了一个具有相同功能的 CorsFilter，这样以后我们就不需要每个项目都单独写一个处理跨域的 Filter 了。
+        // SpringBoot 环境下配置 CorsFilter 示例如下：
         CorsConfiguration config = new CorsConfiguration();
         // 设置访问源地址
         config.addAllowedOriginPattern("*");
