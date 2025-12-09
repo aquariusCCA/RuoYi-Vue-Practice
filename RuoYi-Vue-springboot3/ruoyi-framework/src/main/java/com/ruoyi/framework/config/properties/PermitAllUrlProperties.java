@@ -73,7 +73,7 @@ public class PermitAllUrlProperties implements InitializingBean, ApplicationCont
         //     System.out.println("RequestMappingInfo: " + requestMappingInfo);
         //     System.out.println("HandlerMethod: " + handlerMethod);
         // });
-        
+
         // info代表每一个url对象
         map.keySet().forEach(info -> {
             HandlerMethod handlerMethod = map.get(info);
