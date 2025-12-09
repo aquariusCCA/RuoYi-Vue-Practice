@@ -8,10 +8,10 @@ import java.lang.annotation.Target;
 
 /**
  * 匿名访问不鉴权注解
- * 
+ * 也就是说不管是类还是方法上面，只要有这个注解，不需要登录就能访问
  * @author ruoyi
  *
- * NOTE: RuoYi-Vue-springboot3/筆記/ruoyi/若依的@Anonymous注解.md
+ * NOTE: /筆記/ruoyi/若依的@Anonymous注解.md
  */
 @Target({ ElementType.METHOD, ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)

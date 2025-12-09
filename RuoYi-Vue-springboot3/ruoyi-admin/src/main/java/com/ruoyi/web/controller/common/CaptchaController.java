@@ -42,8 +42,11 @@ public class CaptchaController
     
     @Autowired
     private ISysConfigService configService;
+
     /**
      * 生成验证码
+     *
+     * NOTE: /筆記/ruoyi/驗證碼.md
      */
     @GetMapping("/captchaImage")
     @Anonymous

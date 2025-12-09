@@ -47,6 +47,7 @@ public class RedisConfig extends CachingConfigurerSupport
     public DefaultRedisScript<Long> limitScript()
     {
         DefaultRedisScript<Long> redisScript = new DefaultRedisScript<>();
+        // 通过 lua 脚本可以保证操作的原子性。
         redisScript.setScriptText(limitScriptText());
         redisScript.setResultType(Long.class);
         return redisScript;

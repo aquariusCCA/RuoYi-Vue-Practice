@@ -20,7 +20,8 @@ import com.ruoyi.common.annotation.Anonymous;
 
 /**
  * 设置Anonymous注解允许匿名访问的url
- * 
+ * 项目启动的时候，会将Anonymous注解的路径提取出来，放到urls list里面
+ *
  * @author ruoyi
  *
  * NOTE: RuoYi-Vue-springboot3/筆記/ruoyi/若依的@Anonymous注解.md
@@ -45,10 +46,34 @@ public class PermitAllUrlProperties implements InitializingBean, ApplicationCont
     @Override
     public void afterPropertiesSet()
     {
+        /**
+         * RequestMappingHandlerMapping 本身比較像是：
+         * 啟動時：
+         *      掃描所有 @Controller / @RestController
+         *      找出所有有 @RequestMapping / @GetMapping / @PostMapping… 的方法
+         *      建好那張 Map<RequestMappingInfo, HandlerMethod>（路由表）
+         * 請求進來時：
+         *      依照 HTTP 請求資訊（URL、Method、Header、Content-Type…）在這張路由表裡找到正確的 HandlerMethod
+         *
+         * NOTE: /筆記/springmvc/Spring MVC 路由核心機制：RequestMappingHandlerMapping、RequestMappingInfo 與 HandlerMethod.md
+         */
         RequestMappingHandlerMapping mapping = applicationContext.getBean(RequestMappingHandlerMapping.class);
 
+        /**
+         * Map<RequestMappingInfo, HandlerMethod> = 路由表
+         * RequestMappingInfo = 路由條件，例如 /users/{id}
+         * HandlerMethod = 要呼叫的 controller 方法
+         *
+         * NOTE: /筆記/springmvc/Spring MVC 路由核心機制：RequestMappingHandlerMapping、RequestMappingInfo 與 HandlerMethod.md
+         */
         Map<RequestMappingInfo, HandlerMethod> map = mapping.getHandlerMethods();
-
+        // 可以打註解看一下輸出，就會明白
+        // map.forEach((requestMappingInfo, handlerMethod) -> {
+        //     // 遍歷每個 RequestMappingInfo 和對應的 HandlerMethod
+        //     System.out.println("RequestMappingInfo: " + requestMappingInfo);
+        //     System.out.println("HandlerMethod: " + handlerMethod);
+        // });
+        
         // info代表每一个url对象
         map.keySet().forEach(info -> {
             HandlerMethod handlerMethod = map.get(info);
