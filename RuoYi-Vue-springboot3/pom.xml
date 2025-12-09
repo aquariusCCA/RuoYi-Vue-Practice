@@ -220,7 +220,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <!-- NOTE: 版本對齊說明見 RuoYi-Vue-springboot3/筆記/maven/BOM-vs-pluginManagement_父POM策略.md -->
+                <!-- NOTE: 版本對齊說明見 /筆記/maven/BOM-vs-pluginManagement_父POM策略.md -->
                 <version>${spring-boot-maven-plugin.version}</version>
             </plugin>
         </plugins>

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import com.ruoyi.common.annotation.Anonymous;
+import com.ruoyi.common.annotation.RateLimiter;
 import jakarta.annotation.Resource;
 import javax.imageio.ImageIO;
 import jakarta.servlet.http.HttpServletResponse;
@@ -46,6 +47,7 @@ public class CaptchaController
      */
     @GetMapping("/captchaImage")
     @Anonymous
+    @RateLimiter(key = "captcha", time = 5, count = 1)
     public AjaxResult getCode(HttpServletResponse response) throws IOException
     {
         AjaxResult ajax = AjaxResult.success();
@@ -68,6 +70,8 @@ public class CaptchaController
         if ("math".equals(captchaType))
         {
             String capText = captchaProducerMath.createText();
+            System.out.println("capText=" + capText);
+            System.out.println(capText.lastIndexOf("@"));
             capStr = capText.substring(0, capText.lastIndexOf("@"));
             code = capText.substring(capText.lastIndexOf("@") + 1);
             image = captchaProducerMath.createImage(capStr);
