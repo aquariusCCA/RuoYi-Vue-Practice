@@ -36,7 +36,7 @@ public class SysUser extends BaseEntity
     /** 用户账号 */
     @Excel(name = "登录名称")
     // 用於測試數據脫敏
-    // @Sensitive(desensitizedType = DesensitizedType.USERNAME)
+     @Sensitive(desensitizedType = DesensitizedType.USERNAME)
     private String userName;
 
     /** 用户昵称 */
