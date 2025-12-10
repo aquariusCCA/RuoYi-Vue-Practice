@@ -13,6 +13,7 @@ import com.ruoyi.common.enums.OperatorType;
  * 
  * @author ruoyi
  *
+ * NOTE: /筆記/fastjson2/Fastjson通过SimplePropertyPreFilter过滤属性.md
  */
 @Target({ ElementType.PARAMETER, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)

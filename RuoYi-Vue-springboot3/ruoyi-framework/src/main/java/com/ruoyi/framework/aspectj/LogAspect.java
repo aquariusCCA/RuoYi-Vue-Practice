@@ -37,6 +37,8 @@ import com.ruoyi.system.domain.SysOperLog;
  * 操作日志记录处理
  * 
  * @author ruoyi
+ *
+ * NOTE: /筆記/fastjson2/Fastjson通过SimplePropertyPreFilter过滤属性.md
  */
 @Aspect
 @Component

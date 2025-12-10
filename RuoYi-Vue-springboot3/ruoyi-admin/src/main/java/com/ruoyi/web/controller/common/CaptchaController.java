@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import com.ruoyi.common.annotation.Anonymous;
+import com.ruoyi.common.annotation.Log;
 import com.ruoyi.common.annotation.RateLimiter;
+import com.ruoyi.common.enums.BusinessType;
 import jakarta.annotation.Resource;
 import javax.imageio.ImageIO;
 import jakarta.servlet.http.HttpServletResponse;
@@ -50,7 +52,7 @@ public class CaptchaController
      */
     @GetMapping("/captchaImage")
     @Anonymous
-    @RateLimiter(key = "captcha", time = 5, count = 1)
+    // @RateLimiter(key = "captcha", time = 5, count = 1)
     public AjaxResult getCode(HttpServletResponse response) throws IOException
     {
         AjaxResult ajax = AjaxResult.success();
