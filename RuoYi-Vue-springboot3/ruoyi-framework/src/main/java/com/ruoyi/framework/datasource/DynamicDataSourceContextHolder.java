@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
  * 数据源切换处理
  * 
  * @author ruoyi
+ *
+ * NOTE: /筆記/spring/浅析spring中的多数据源解决方案AbstractRoutingDataSource的使用.md
  */
 public class DynamicDataSourceContextHolder
 {

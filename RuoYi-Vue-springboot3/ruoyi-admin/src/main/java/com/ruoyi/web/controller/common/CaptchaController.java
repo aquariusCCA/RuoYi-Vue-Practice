@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import com.ruoyi.common.annotation.Anonymous;
 import com.ruoyi.common.annotation.Log;
 import com.ruoyi.common.annotation.RateLimiter;
+import com.ruoyi.common.annotation.RepeatSubmit;
 import com.ruoyi.common.enums.BusinessType;
 import jakarta.annotation.Resource;
 import javax.imageio.ImageIO;
@@ -53,6 +54,7 @@ public class CaptchaController
     @GetMapping("/captchaImage")
     @Anonymous
     // @RateLimiter(key = "captcha", time = 5, count = 1)
+    @RepeatSubmit(interval = 200, message = "請勿頻繁請求驗證碼")
     public AjaxResult getCode(HttpServletResponse response) throws IOException
     {
         AjaxResult ajax = AjaxResult.success();

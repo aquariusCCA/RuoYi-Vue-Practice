@@ -20,7 +20,8 @@ private DataSource resolvedDefaultDataSource;
 
 `targetDataSources` 就是需要设置的多数据源，可理解为从数据源，对应的 `defaultTargetDataSource`可理解为主数据源， 这两个属性均可通过对应的 `setter` 进行设置。
 `lenientFallback` 直接翻译有点怪怪的，简单理解，当通过路由查找键找不到对应的数据源时，是否使用默认的数据源，默认是 `true`。
-至于后面两个 `resolvedXXX`，其实对应的就是 `targetDataSources` 和 `defaultTargetDataSource`，具体的初始化过程见 `afterPropertiesSet()`，因为在通过 `setter` 设置数据源的时候，值类型不一定是 `DataSource`，可能为字符串，这时候就需要 `dataSourceLookup` 将其转换为 `DataSource`，`dataSourceLookup` 一般情况下不需要我们自定义，直接使用默认的就行。
+至于后面两个 `resolvedXXX`，其实对应的就是 `targetDataSources` 和 `defaultTargetDataSource`，具体的初始化过程见 `afterPropertiesSet()`，
+因为在通过 `setter` 设置数据源的时候，值类型不一定是 `DataSource`，可能为字符串，这时候就需要 `dataSourceLookup` 将其转换为 `DataSource`，`dataSourceLookup` 一般情况下不需要我们自定义，直接使用默认的就行。
 
 当需要操作数据库的时候，`AbstractRoutingDataSource` 通过 `getConnection()` 方法获取当前需要操作的数据源的连接
 

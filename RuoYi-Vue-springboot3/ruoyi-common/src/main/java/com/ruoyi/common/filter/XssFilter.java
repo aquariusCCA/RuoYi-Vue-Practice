@@ -21,6 +21,11 @@ import com.ruoyi.common.enums.HttpMethod;
  *
  * NOTE: /筆記/Web Security/XSS 攻擊.md
  * NOTE: /筆記/Web Security/防 Xss 代码攻击.md
+ *
+ * 「XssFilter 先執行」 ≠ 「XssFilter 已經把 body 讀掉了」
+ * Filter 先後順序只決定「包 wrapper 的順序」，真正把 body 讀光的是第一次有人呼叫 getInputStream() / getReader() 的那一刻，而不是 new wrapper 的那一刻。
+ * 這裡只做了一件事：👉 用 XssHttpServletRequestWrapper 把原始 request 包起來，還沒有讀 body。
+ * 第一次真正讀取 body 的地方在 HttpHelper.getBodyString(request) 裡面呼叫 request.getInputStream() 。
  */
 public class XssFilter implements Filter
 {

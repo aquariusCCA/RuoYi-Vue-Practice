@@ -45,9 +45,8 @@ public class ResourcesConfig implements WebMvcConfigurer
     @Override
     public void addInterceptors(InterceptorRegistry registry)
     {
+        // 將已經寫好的重複提交攔截器添加到mvc的攔截器中
         registry.addInterceptor(repeatSubmitInterceptor).addPathPatterns("/**");
-        // 測試重複提交
-//        registry.addInterceptor(repeatSubmitInterceptor).addPathPatterns("/system/user/list");
     }
 
     /**
