@@ -19,6 +19,7 @@ import com.ruoyi.common.constant.Constants;
  *
  * NOTE: /筆記/ruoyi/防止重複提交.md
  * NOTE: /筆記/springmvc/使用HttpServletRequestWrapper 解决流只能读取一次的问题.md
+ * NOTE: /筆記/springmvc/经验分享：读取HttpServletRequest和HttpServletResponse的Body时遇到的坑和解决方法.md
  */
 public class RepeatedlyRequestWrapper extends HttpServletRequestWrapper
 {

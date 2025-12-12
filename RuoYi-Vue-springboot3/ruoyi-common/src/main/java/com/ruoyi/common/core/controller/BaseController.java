@@ -36,20 +36,33 @@ public class BaseController
 {
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    /**
-     * 将前台传递过来的日期格式的字符串，自动转化为Date类型
-     *
-     * NOTE: /筆記/spring/@InitBinder 使用教學.md
-     */
+    // 将前台传递过来的日期格式的字符串，自动转化为Date类型
+    // NOTE: /筆記/springmvc/@InitBinder 使用教學.md
     @InitBinder
     public void initBinder(WebDataBinder binder)
     {
-        // Date 类型转换
+
+        /**
+         * 1) HTTP 請求參數在 Servlet 層就是 String（或 String[]）
+         *      - request.getParameter(name) → String
+         *      - request.getParameterValues(name) → String[]
+         *      也就是說，Spring WebDataBinder 拿到的「原始值」在大多數情況就是字串，然後才嘗試把它轉成目標型別（例如 Date）。
+         *
+         * 2) Spring 只有在「需要把文字轉成目標型別」時才會呼叫 setAsText(String text)
+         *      PropertyEditorSupport 的典型轉換流程就是：文字（text） → 目標型別（Date / Integer / Enum / …）
+         *      所以 Spring 在綁定 Date 欄位時，會把那個原始字串丟給 setAsText(String text)，這就是參數型別是 String 的原因。
+         *
+         * 3) 但要小心：不是所有情境都走 setAsText
+         *      這裡很多人會誤判：
+         *      - 若你的資料是 JSON（@RequestBody），通常走的是 HttpMessageConverter（例如 Jackson）直接反序列化，不一定會用到 PropertyEditorSupport#setAsText。
+         *      - 若原始值不是文字（例如某些框架內部直接給物件），可能會走 setValue(Object value) 或其他型別轉換機制（Converter/Formatter），而不是 setAsText。
+         */
         binder.registerCustomEditor(Date.class, new PropertyEditorSupport()
         {
             @Override
             public void setAsText(String text)
             {
+                // Date 类型转换
                 setValue(DateUtils.parseDate(text));
             }
         });

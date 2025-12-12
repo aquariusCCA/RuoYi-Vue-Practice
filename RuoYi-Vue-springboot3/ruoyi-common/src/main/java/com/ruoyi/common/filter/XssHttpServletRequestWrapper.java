@@ -19,6 +19,8 @@ import com.ruoyi.common.utils.html.EscapeUtil;
  *
  * NOTE: /筆記/Web Security/XSS 攻擊.md
  * NOTE: /筆記/Web Security/防 Xss 代码攻击.md
+ * NOTE: /筆記/springmvc/使用HttpServletRequestWrapper 解决流只能读取一次的问题.md
+ * NOTE: /筆記/springmvc/经验分享：读取HttpServletRequest和HttpServletResponse的Body时遇到的坑和解决方法.md
  */
 public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper
 {
