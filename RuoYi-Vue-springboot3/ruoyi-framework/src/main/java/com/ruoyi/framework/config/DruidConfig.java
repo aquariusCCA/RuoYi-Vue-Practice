@@ -28,7 +28,7 @@ import jakarta.servlet.ServletResponse;
  * druid 配置多数据源
  * 
  * @author ruoyi
- *
+
  * NOTE: /筆記/spring/浅析spring中的多数据源解决方案AbstractRoutingDataSource的使用.md
  */
 @Configuration
