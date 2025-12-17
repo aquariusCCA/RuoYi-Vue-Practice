@@ -21,6 +21,8 @@ public class ApplicationConfig
 {
     /**
      * 时区配置
+     *
+     * NOTE: /筆記/jackson/东八区的 springboot 如何配置序列化.md
      */
     @Bean
     public Jackson2ObjectMapperBuilderCustomizer jacksonObjectMapperCustomization()

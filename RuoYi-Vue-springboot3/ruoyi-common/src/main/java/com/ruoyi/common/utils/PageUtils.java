@@ -22,6 +22,9 @@ public class PageUtils extends PageHelper
         Integer pageSize = pageDomain.getPageSize();
         String orderBy = SqlUtil.escapeOrderBySql(pageDomain.getOrderBy());
         Boolean reasonable = pageDomain.getReasonable();
+        // Reasonable 參數合理化
+        // 啟用合理化時，如果 pageNum < 1 會查詢第一頁，如果 pageNum > pages 會查詢最後一頁
+        // 禁用合理化時，如果 pageNum < 1 或 pageNum > pages 會返回空數據
         PageHelper.startPage(pageNum, pageSize, orderBy).setReasonable(reasonable);
     }
 

@@ -695,6 +695,8 @@ public class ExcelUtil<T>
             {
                 Field field = (Field) os[0];
                 Excel excel = (Excel) os[1];
+                // isAssignableFrom() 是 java.lang.Class 的方法，用來判斷「左邊的型別能不能接住（被指派為）右邊的型別的物件」。
+                // 結論一句話：A.class.isAssignableFrom(B.class) 等價於在型別層面問：B 是不是 A（或 A 的子類 / 實作類）？
                 if (Collection.class.isAssignableFrom(field.getType()))
                 {
                     for (Field subField : subFields)
