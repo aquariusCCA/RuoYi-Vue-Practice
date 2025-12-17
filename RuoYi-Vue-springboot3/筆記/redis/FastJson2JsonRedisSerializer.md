@@ -1,4 +1,3 @@
-````markdown
 # Redis 序列化：Fastjson autoType + 白名單（以若依為例）
 
 ## 一、背景：為什麼若依要自訂 RedisSerializer？
@@ -18,7 +17,7 @@ Spring Data Redis 本身已提供多種序列化器，例如：
 
 ## 二、若依的 FastJson2JsonRedisSerializer 做了什麼？
 
-核心程式碼（簡化版）：
+核心程式碼：
 
 ```java
 public class FastJson2JsonRedisSerializer<T> implements RedisSerializer<T>
@@ -34,6 +33,11 @@ public class FastJson2JsonRedisSerializer<T> implements RedisSerializer<T>
         this.clazz = clazz;
     }
 
+   /**
+    * 注意點：
+    * 1. 建議要能處理 null / empty array（Spring Data Redis 直接寫在介面說明裡）。
+    * 2. Redis 不接受 null key/value，但對不存在的 key 可能回 null reply：你的 serializer / 使用端必須能接受這種情況。
+    */
     @Override
     public byte[] serialize(T t) throws SerializationException
     {
@@ -340,6 +344,3 @@ public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory connec
 
 > 只要看到：「`WriteClassName` + `@type` + `autoTypeFilter`」，就要立刻聯想到：
 > **多型還原能力 + 反序列化安全控制**，這兩者是綁一起考量的。
-
-```
-```
