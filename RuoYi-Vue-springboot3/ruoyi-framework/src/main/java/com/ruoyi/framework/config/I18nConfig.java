@@ -14,7 +14,6 @@ import com.ruoyi.common.constant.Constants;
  * 
  * @author ruoyi
  *
- * NOTE: [国际化(i18)不知道怎么做?来看看利用Spring Boot如何优雅实现](https://juejin.cn/post/7134515481775439903#heading-2 "国际化(i18)不知道怎么做?来看看利用Spring Boot如何优雅实现")
  */
 @Configuration
 public class I18nConfig implements WebMvcConfigurer
@@ -22,6 +21,8 @@ public class I18nConfig implements WebMvcConfigurer
     @Bean
     public LocaleResolver localeResolver()
     {
+        // 解析請求中的語言環境
+        // SessionLocaleResolver: 通過 Session 存儲語言偏好
         SessionLocaleResolver slr = new SessionLocaleResolver();
         // 默认语言
         slr.setDefaultLocale(Constants.DEFAULT_LOCALE);
@@ -31,6 +32,7 @@ public class I18nConfig implements WebMvcConfigurer
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor()
     {
+        // 攔截請求，根據參數（如：?lang=en_US）動態切換語言
         LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
         // 参数名
         lci.setParamName("lang");

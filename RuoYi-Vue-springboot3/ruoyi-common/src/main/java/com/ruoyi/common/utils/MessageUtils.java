@@ -20,6 +20,7 @@ public class MessageUtils
      */
     public static String message(String code, Object... args)
     {
+        // MessageSource: 提供 getMessage(String code, Object[] args, Local locale) 方法獲取多語言文本
         MessageSource messageSource = SpringUtils.getBean(MessageSource.class);
         return messageSource.getMessage(code, args, LocaleContextHolder.getLocale());
     }
