@@ -18,6 +18,8 @@ import com.ruoyi.common.utils.StringUtils;
  * Filter配置
  *
  * @author ruoyi
+ *
+ * NOTE: /筆記/springboot/SpringBoot 实现过滤器 Filter 的方式.md
  */
 @Configuration
 public class FilterConfig
