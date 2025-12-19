@@ -52,7 +52,7 @@ public class ResourcesConfig implements WebMvcConfigurer
     /**
      * 跨域配置
      *
-     * NOTE: [Spring MVC处理 CORS 跨域](https://www.cnblogs.com/xfeiyun/p/15790563.html "Spring MVC处理 CORS 跨域")
+     * NOTE: /筆記/springboot/Springboot处理CORS跨域请求的三种方法.md
      */
     @Bean
     public CorsFilter corsFilter()

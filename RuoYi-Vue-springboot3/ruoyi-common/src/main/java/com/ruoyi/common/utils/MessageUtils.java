@@ -17,6 +17,8 @@ public class MessageUtils
      * @param code 消息键
      * @param args 参数
      * @return 获取国际化翻译值
+     *
+     * NOTE: RuoYi-Vue-springboot3/筆記/springboot/Spring Boot 国际化 i18n.md
      */
     public static String message(String code, Object... args)
     {

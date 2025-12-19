@@ -14,6 +14,7 @@ import com.ruoyi.common.constant.Constants;
  * 
  * @author ruoyi
  *
+ * NOTE: RuoYi-Vue-springboot3/筆記/springboot/Spring Boot 国际化 i18n.md
  */
 @Configuration
 public class I18nConfig implements WebMvcConfigurer
