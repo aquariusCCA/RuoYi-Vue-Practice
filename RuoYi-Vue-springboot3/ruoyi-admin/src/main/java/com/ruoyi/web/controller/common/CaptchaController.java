@@ -12,6 +12,8 @@ import com.ruoyi.common.enums.BusinessType;
 import jakarta.annotation.Resource;
 import javax.imageio.ImageIO;
 import jakarta.servlet.http.HttpServletResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.FastByteArrayOutputStream;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +36,7 @@ import com.ruoyi.system.service.ISysConfigService;
 @RestController
 public class CaptchaController
 {
+    private static final Logger log = LoggerFactory.getLogger(CaptchaController.class);
     @Resource(name = "captchaProducer")
     private Producer captchaProducer;
 
@@ -77,8 +80,9 @@ public class CaptchaController
         if ("math".equals(captchaType))
         {
             String capText = captchaProducerMath.createText();
-            System.out.println("capText=" + capText);
-            System.out.println(capText.lastIndexOf("@"));
+            // capText 的格式：
+            // 0/3=?@0
+            // 8+4=?@12
             capStr = capText.substring(0, capText.lastIndexOf("@"));
             code = capText.substring(capText.lastIndexOf("@") + 1);
             image = captchaProducerMath.createImage(capStr);
