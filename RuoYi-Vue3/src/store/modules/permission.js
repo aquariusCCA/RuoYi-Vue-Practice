@@ -7,6 +7,7 @@ import InnerLink from '@/layout/components/InnerLink'
 
 // 匹配views里面所有的.vue文件
 const modules = import.meta.glob('./../../views/**/*.vue')
+console.log(modules)
 
 const usePermissionStore = defineStore(
   'permission',

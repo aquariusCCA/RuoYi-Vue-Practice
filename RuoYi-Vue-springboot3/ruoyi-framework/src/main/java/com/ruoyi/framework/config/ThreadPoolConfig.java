@@ -13,6 +13,8 @@ import java.util.concurrent.ThreadPoolExecutor;
  * 线程池配置
  *
  * @author ruoyi
+ *
+ * NOTE: /筆記/springboot/详解Spring Boot定时任务的几种实现方案.md
  **/
 @Configuration
 public class ThreadPoolConfig
@@ -29,6 +31,7 @@ public class ThreadPoolConfig
     // 线程池维护线程所允许的空闲时间
     private int keepAliveSeconds = 300;
 
+    // 目前看下來沒在使用
     @Bean(name = "threadPoolTaskExecutor")
     public ThreadPoolTaskExecutor threadPoolTaskExecutor()
     {

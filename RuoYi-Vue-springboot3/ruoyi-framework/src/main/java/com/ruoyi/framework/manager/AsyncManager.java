@@ -39,6 +39,8 @@ public class AsyncManager
      * 执行任务
      * 
      * @param task 任务
+     *
+     * NOTE: /筆記/springboot/详解Spring Boot定时任务的几种实现方案.md
      */
     public void execute(TimerTask task)
     {

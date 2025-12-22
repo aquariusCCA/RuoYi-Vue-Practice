@@ -151,6 +151,7 @@ public class TokenService
         loginUser.setExpireTime(loginUser.getLoginTime() + expireTime * MILLIS_MINUTE);
         // 根据uuid将loginUser缓存
         String userKey = getTokenKey(loginUser.getToken());
+        // 將 LoginUser 使用者資訊存入到 Redis 中，後續透過 getInfo 獲取
         redisCache.setCacheObject(userKey, loginUser, expireTime, TimeUnit.MINUTES);
     }
 

@@ -20,6 +20,8 @@ import eu.bitwalker.useragentutils.UserAgent;
  * 异步工厂（产生任务用）
  * 
  * @author ruoyi
+ *
+ * NOTE: /筆記/springboot/详解Spring Boot定时任务的几种实现方案.md
  */
 public class AsyncFactory
 {
@@ -37,6 +39,7 @@ public class AsyncFactory
     public static TimerTask recordLogininfor(final String username, final String status, final String message,
             final Object... args)
     {
+        // 使用 user-agent-utils 來解析 User-Agent 字符串的類庫
         final UserAgent userAgent = UserAgent.parseUserAgentString(ServletUtils.getRequest().getHeader("User-Agent"));
         final String ip = IpUtils.getIpAddr();
         return new TimerTask()
