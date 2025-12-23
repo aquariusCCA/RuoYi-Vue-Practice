@@ -45,6 +45,7 @@ public class SysPasswordService
     {
         Authentication usernamePasswordAuthenticationToken = AuthenticationContextHolder.getContext();
         String username = usernamePasswordAuthenticationToken.getName();
+        // getCredentials(): 返回用戶的憑證信息，例如密碼
         String password = usernamePasswordAuthenticationToken.getCredentials().toString();
 
         Integer retryCount = redisCache.getCacheObject(getCacheKey(username));

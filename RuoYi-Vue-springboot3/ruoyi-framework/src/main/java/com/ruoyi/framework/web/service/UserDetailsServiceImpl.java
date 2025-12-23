@@ -19,6 +19,8 @@ import com.ruoyi.system.service.ISysUserService;
  * 用户验证处理
  *
  * @author ruoyi
+ *
+ * UserDetailsService 接口：加載用戶特定數據的核心接口。裡面定義了一個根據用戶名查詢用戶信息的方法。
  */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService
@@ -56,6 +58,8 @@ public class UserDetailsServiceImpl implements UserDetailsService
 
         passwordService.validate(user);
 
+        // UserDetails 接口：提供核心用戶信息。通過 UserDetailsService 根據用戶名獲取處理的用戶信息要封裝成 UserDetails 對象返回。
+        // 然後將這些信息封裝到 Authentication 對象中。
         return createLoginUser(user);
     }
 

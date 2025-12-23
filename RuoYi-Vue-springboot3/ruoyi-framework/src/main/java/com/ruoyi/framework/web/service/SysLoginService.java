@@ -70,9 +70,11 @@ public class SysLoginService
         Authentication authentication = null;
         try
         {
+            // Authentication 接口：它的實現類，表示當前訪問系統的用戶，封裝了用戶相關信息
             UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
             AuthenticationContextHolder.setContext(authenticationToken);
-            // 该方法会去调用UserDetailsServiceImpl.loadUserByUsername
+            // AuthenticationManager 是 Spring Security 中的認證管理器用來對登錄請求進行處理
+            // 調用 authenticate 方法進行認證，该方法会去调用 UserDetailsServiceImpl.loadUserByUsername
             authentication = authenticationManager.authenticate(authenticationToken);
         }
         catch (Exception e)
