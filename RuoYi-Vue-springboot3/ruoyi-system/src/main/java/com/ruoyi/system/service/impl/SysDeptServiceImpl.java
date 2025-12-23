@@ -57,6 +57,8 @@ public class SysDeptServiceImpl implements ISysDeptService
     @Override
     public List<TreeSelect> selectDeptTreeList(SysDept dept)
     {
+        // 只有「經過代理」的呼叫才會觸發 AOP；類內部的 this 呼叫繞過代理，因此不會觸發 AOP。
+        // NOTE: /筆記/spring/Spring AOP 同類內部呼叫 不生效.md
         List<SysDept> depts = SpringUtils.getAopProxy(this).selectDeptList(dept);
         return buildDeptTreeSelect(depts);
     }

@@ -6,6 +6,7 @@ import ParentView from '@/components/ParentView'
 import InnerLink from '@/layout/components/InnerLink'
 
 // 匹配views里面所有的.vue文件
+// NOTE: /筆記/详解 import.meta.glob.md
 const modules = import.meta.glob('./../../views/**/*.vue')
 console.log(modules)
 
